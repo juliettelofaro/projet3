@@ -1,1 +1,1 @@
-init du projet  
+init du projet de juliette 

@@ -9,7 +9,8 @@ class ControllerComment{
 	        if(isset($_SESSION['idutilisateur'])){
 	        	$donnees['iduser'] = $_SESSION['idutilisateur'];
 	        	$co->add(new Commentaire($donnees));
-	        	 $lien = "../";$liencss = "../";header('location:../index.php');
+	        	 $lien = "../";$liencss = "../";
+	        	 header('location:../index.php');
 	        }
 	        else ControllerBillet::homemsg($conn,"Vous devez vous connecter pour commenter sous un article.");
 	    }

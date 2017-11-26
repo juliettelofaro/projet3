@@ -182,7 +182,7 @@ div.post_message_tc:hover {
 }
 
 
-.post_message_tc h2 {
+div.post_message_tc h2 {
     /*titre de l'article*/
     font-weight: 100;
     font-size: 30pt;
@@ -200,10 +200,7 @@ div.post_message_tc:before {
     z-index: 20;
 }
 
-div.post_message_tc.announcement {
-    /*couleur bloc*/
-    background: #F0F8FF;
-}
+
 
 
 

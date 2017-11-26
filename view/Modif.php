@@ -2,12 +2,15 @@
 <head>
    <meta charset="utf8">
 	<title>Billet simple pour l'Alaska</title>
+  <!--intégration tinymce pour zone de texte-->
 	 <script type="text/javascript" src="../view/tinymce/tinymce.min.js"></script>
 	    <script type="text/javascript">
 	        tinyMCE.init({
 	            mode : "textareas"
 	        });
 	    </script>
+
+
 </head>
 <link href="<?php echo $liencss; ?>view/css/style.css" rel='stylesheet' type='text/css'/>
 <body>

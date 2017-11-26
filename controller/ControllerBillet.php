@@ -1,4 +1,4 @@
-﻿
+
 <?php
 session_start();
 require_once('../model/Billet.php'); // chargement du modèle
@@ -95,6 +95,10 @@ class ControllerBillet {
      public static function redirect($conn) {
          header('location:../index.php');
  }
+
+
+// EDITER UN BILLET
+
  public static function edit($id,$conn) {
          $var = new BilletManager($conn);
         $page = (!empty($_GET['page']) ? $_GET['page'] : 1);
@@ -150,8 +154,10 @@ class ControllerBillet {
     }
 
 
+
+// EDITER UN ARTCILE
+
     public static function editer($id,$conn ) {
-          echo 'controllerBillet </br>';  
         $lien = "../";$liencss = "../";
         if(!isset($_SESSION['idutilisateur'])) require ('../view/Log.php'); 
         else{

@@ -3,7 +3,9 @@
 	else require_once 'ControllerBillet.php';
 	//l.5 le routeur demande la connexion à la bdd au controller et la place dans la var $conn
 	$conn = ControllerBillet::connect();
-	if(isset($_GET['action'])){
+
+	if(isset($_GET['action']))
+	{
 		require_once 'ControllerBillet.php';
 		$action = $_GET['action'];    // recupère l'action mdpée dans l'URL 
 		ControllerBillet::$action($conn);
@@ -23,9 +25,13 @@
 			 $data['contenu'] = $_POST['contenu'];}
 				ControllerBillet::$action($data,$conn);
 	}
-	else if(isset($_GET['ajoutercommentaire'])){
+
+
+
+	
+	else if(isset($_GET['actionajoutercommentaire'])){
 		require_once 'ControllerComment.php';
-		$action = $_GET['ajoutercommentaire']; 
+		$action = $_GET['actionajoutercommentaire']; 
 		$data = array();
 		if(isset($_POST['id'])) $data['id'] = $_POST['id'];
 			$data['idbillet'] = $_POST['idbillet'];
@@ -42,6 +48,12 @@
 		$action = $_GET['actioneditercomm'];  
 		ControllerComment::$action($_POST['id'],$_POST['contenu'],$conn);
 	}
+
+
+
+
+
+
 	else if(isset($_GET['actionseconnecter'])){
 		require_once 'ControllerUser.php';
 		$action = $_GET['actionseconnecter'];  
@@ -56,8 +68,7 @@
 		require_once 'ControllerUser.php';
 		$action = $_GET['actionuser'];  
 		ControllerUser::$action($conn);
-	}
-	
+	}	
 	else {
 		require_once 'ControllerBillet.php';
 		$conn = ControllerBillet::connect();

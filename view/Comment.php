@@ -65,7 +65,7 @@ while ($v = $tab_v->fetch(PDO::FETCH_ASSOC))
 <!--form ajouter un com-->
 <pre data-codetype="Commentaires" style="display:block;border-color:rgba(12, 12, 12, 0.13);background-color:rgba(12, 12, 12, 0.13);">
 
-<form method="POST" action="?ajoutercommentaire=ajoutercommentaire">
+<form method="POST" action="?actionajoutercommentaire=ajoutercommentaire">
     <input type="text" name="contenu"/>
     <input type="hidden" name="idbillet" value=" <?php echo $b->getId(); ?>"/>
     <input type="submit" value="Ajouter un commentaire"/>

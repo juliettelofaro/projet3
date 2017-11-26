@@ -3,7 +3,6 @@
 <meta charset="utf8">
 	<title>Billet simple pour l'Alaska</title>
 <link href="<?php echo $liencss; ?>view/css/style.css" rel='stylesheet' type='text/css'/>
-<link href="projet_ec/view/bootstrap/bootstrap.min.css" rel="stylesheet">
 </head> 
 <body>
     
@@ -51,7 +50,7 @@ if(isset($_SESSION['idutilisateur']))
 
 
 <!--titre-->
-<div class="post_message_tc announcement"> 
+<div class="post_message_tc"> 
 	 <center>
     <h2 style="font-family:Courier New; color:black; font-weight: bold; "> 
     <?php echo $b->getTitre(); ?>
@@ -80,7 +79,7 @@ if(isset($_SESSION['idutilisateur']))
 	 <pre data-codetype="Commentaires" style="display:block; border-color:white; background-color:white;">
 
 
-<form method="POST" action="?ajoutercommentaire=ajoutercommentaire"><input type="text" name="contenu"/> <input type="hidden" name="idbillet" value=" <?php echo $b->getId(); ?>"/><input type="submit" value="Envoyer le commentaire" style="background-color:#87CEEB;"/></form><?php if(isset($comms)) echo '<label style="color:red">'.$comms.'</label>';?>
+<form method="POST" action="?actionajoutercommentaire=ajoutercommentaire"><input type="text" name="contenu"/> <input type="hidden" name="idbillet" value=" <?php echo $b->getId(); ?>"/><input type="submit" value="Envoyer le commentaire" style="background-color:#87CEEB;"/></form><?php if(isset($comms)) echo '<label style="color:red">'.$comms.'</label>';?>
 <?php 
 $varcomm = new CommentaireManager($conn);
 $tab_comm =  $varcomm->getListByBillet($b->getId());
@@ -97,11 +96,12 @@ if(isset( $tab_comm))
               { 	
                 $infouser = new User($vuser);
                 //Message + boutons Signaler / Modifier / Supprimer
-                echo ucfirst ($infouser->getLog()).'  <p class=\'com_date\'>' . $vii->getDateAjout().' </p> | ' .$vii->getContenu(); ?>  <a href="?actionediter=signaler&id=<?php echo $vi['id'];?> ">Signaler</a></br></br><?php if(isset($_SESSION['idutilisateur'])){ if($_SESSION['isadmin']){ echo '('.$vii->getReport().')';}if($vii->getIduser() == $_SESSION['idutilisateur']){ ?> <a href="?actioneditercommentaire=edit&id=<?php echo $vi['id'];?>">Modifier</a>  <a href="?actioneditercommentaire=supprimer&id=<?php echo $vi['id'];?>">Supprimer</a>
+                echo ucfirst ($infouser->getLog()).'  <p class=\'com_date\'>' . $vii->getDateAjout().' </p> | ' .$vii->getContenu(); ?>  <a href="?actionediter=signaler&id=<?php echo $vi['id'];?> ">Signaler</a></br></br><?php if(isset($_SESSION['idutilisateur'])){ if($_SESSION['isadmin']){ echo '('.$vii->getReport().') </br></br>';}if($vii->getIduser() == $_SESSION['idutilisateur']){ ?> <a href="?actioneditercommentaire=edit&id=<?php echo $vi['id'];?>">Modifier</a>  <a href="?actioneditercommentaire=supprimer&id=<?php echo $vi['id'];?>">Supprimer</a></br></br>
 <?php } else echo "<br>"; }else echo "<br>";}}  }} ?> 
 </pre>
 </div>
 <hr/>
+
 
 <?php } 
 ?>

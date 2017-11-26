@@ -2,12 +2,7 @@
 <head>
    <meta charset="utf8">
 	<title>Billet simple pour l'Alaska</title>
-	 <script type="text/javascript" src="../view/tinymce/tinymce.min.js"></script>
-	    <script type="text/javascript">
-	        tinyMCE.init({
-	            mode : "textareas"
-	        });
-	    </script>
+	
 </head>
 <link href="<?php echo $liencss; ?>view/css/style.css" rel='stylesheet' type='text/css'/>
 <body>
@@ -47,10 +42,10 @@ if(isset($_SESSION['idutilisateur']))
  </br>		   
 </center><hr/></br>
  		   <pre data-codetype="UTILISATEUR DÉJÀ ENREGISTRÉ" style="width:45%; display:inline-block;border-color:#008080; border-style:dotted;  background-color:#008080;">
-    		<form action="?actionseconnecter=seconnecter" method="POST" >
+    		<form action="?actionseconnecter=seconnecter" method="POST">
 		<input class="" type="text" name="log" placeholder="nom" autofocus required /> <br/>
 		<input  class="" type="password" name="mdp" placeholder="mot de passe" required /> <br/>
-		<input id="cValid" type="submit" name="valid" value="CONNEXION" /> <br/>
+		<input id="cValid" type="submit" name="valid" value="CONNEXION"/> <br/>
 			</form>
 			</pre>
 			
